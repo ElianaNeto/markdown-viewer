@@ -6,11 +6,9 @@ function App() {
   const [text, setText] = useState(localStorage.getItem("markdownText"));
 
   const renderText = () => {
-    //retorna o texto como html
     return { __html: marked(text) };
   };
 
-  //criar referencia para texteArea (selecionar elementos pelo DOM (js puro))
   const texteAreaRef = useRef(null);
 
   useEffect(() => {
@@ -29,11 +27,7 @@ function App() {
     const newText = `${beforeText}${before}${selectText}${after}${afterText}`;
 
     setText(newText)
-
     textArea.focus();
-
-    console.log("new text: " + newText)
-    console.log(textArea, start, end)
   }
 
   return (
